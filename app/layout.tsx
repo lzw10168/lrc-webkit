@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lrc-webkit.vercel.app/",
+    url: "https://lrc.gooooood.top/",
     siteName: "LRC-Webkit",
     title: "LRC-Webkit - Online LRC Editor",
     description: "A powerful online LRC editor with real-time timestamp marking, keyboard shortcuts, and multi-language support.",

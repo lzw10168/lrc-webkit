@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://lrc-webkit.vercel.app/sitemap.xml',
+    sitemap: 'https://lrc.gooooood.top/sitemap.xml',
   };
 } 

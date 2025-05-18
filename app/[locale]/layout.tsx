@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     openGraph: {
       type: "website",
       locale: locale,
-      url: `https://lrc-webkit.vercel.app/${locale}`,
+      url: `https://lrc.gooooood.top/${locale}`,
       siteName: "LRC-Webkit",
       title: localeMetadata.title || "",
       description: localeMetadata.description || "",
@@ -59,10 +59,10 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       { media: "(prefers-color-scheme: dark)", color: "black" }
     ],
     alternates: {
-      canonical: `https://lrc-webkit.vercel.app/${locale}`,
+      canonical: `https://lrc.gooooood.top/${locale}`,
       languages: {
-        'en': 'https://lrc-webkit.vercel.app/en',
-        'zh': 'https://lrc-webkit.vercel.app/zh'
+        'en': 'https://lrc.gooooood.top/en',
+        'zh': 'https://lrc.gooooood.top/zh'
       }
     }
   };

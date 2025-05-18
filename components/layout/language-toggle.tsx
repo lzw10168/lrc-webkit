@@ -8,12 +8,11 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Languages } from "lucide-react"
-import { useLocale } from 'next-intl';
 import { useRouter, usePathname, useParams } from 'next/navigation';
 import { trackEvent, AnalyticsEvents } from '@/lib/analytics';
 
 export function LanguageToggle() {
-  const locale = useLocale();
+  const locale = useParams().locale as string;
   const router = useRouter();
   const pathname = usePathname();
   const handleLocaleChange = (newLocale: string) => {
@@ -25,7 +24,6 @@ export function LanguageToggle() {
     router.push(`/${newLocale}${newPathname}`);
   }
 
-  console.log('locale: ', locale);
   return (
     <Select value={locale} onValueChange={handleLocaleChange}>
       <SelectTrigger className="w-[72px] h-8 px-2">
