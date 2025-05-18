@@ -1,0 +1,78 @@
+{
+  "Index": {
+    "title": "LRC-Webkit",
+    "description": "强大的LRC编辑器"
+  },
+  "Nav": {
+    "github": "在GitHub上查看"
+  },
+  "Editor": {
+    "importAudio": "导入音频",
+    "importLyrics": "导入歌词",
+    "exportLyrics": "导出歌词",
+    "expandEditor": "展开编辑器",
+    "collapseEditor": "收起编辑器",
+    "lyricsLine": "歌词行",
+    "shortcuts": "快捷键说明",
+    "shortcutTips": {
+      "title": "快捷键说明：",
+      "space": "空格键：为下一行添加时间戳",
+      "arrows": "← →：微调当前行时间戳",
+      "numbers": "数字键1-9：快速跳转到对应进度"
+    },
+    "noLyrics": "尚未导入歌词",
+    "lineAdjust": "单行微调:",
+    "seconds": "秒",
+    "updateTimestamp": "更新时间戳",
+    "moveForward": "前移",
+    "moveBackward": "后移",
+    "helpText": {
+      "batchImport": "支持多选批量导入歌词文件，自动匹配与音频文件名相似的歌词",
+      "timestampFormat": "支持导入带时间戳的歌词（[00:08:601] 格式），可直接微调时间戳"
+    },
+    "matchResults": {
+      "title": "歌词匹配结果:",
+      "success": "成功匹配",
+      "failed": "未找到匹配"
+    },
+    "textArea": {
+      "title": "文本框",
+      "placeholder": "在此粘贴歌词文本...",
+      "copyToClipboard": "复制歌词到剪贴板",
+      "exportCurrentLyrics": "导出当前音频的歌词",
+      "noLyricsToExport": "没有可导出的歌词",
+      "lyricsExported": "已导出歌词文件: {filename}",
+      "lyricsCopied": "歌词已复制到剪贴板",
+      "noMatchingLyrics": "无法找到匹配的歌词行",
+      "matchingLyricsUpdated": "已更新匹配行时间戳: {time}",
+      "lyricsImported": "已导入{success}个歌词文件，未匹配{failed}个",
+      "noTimestamp": "该行没有时间戳，无法调整",
+      "timestampAdjusted": "已{offsetSeconds > 0 ? '后移' : '前移'}匹配行时间戳: {offset}秒"
+    },
+    "player": {
+      "noAudioSelected": "未选择音频",
+      "speed": "速度:",
+      "copyCurrentTime": "复制当前时间",
+      "previousTrack": "上一首 (↑)",
+      "nextTrack": "下一首 (↓)",
+      "rewind": "后退 5 秒 (←)",
+      "forward": "前进 5 秒 (→)",
+      "playPause": "播放/暂停 (空格键)",
+      "playbackFailed": "播放失败: {error}",
+      "nowPlaying": "正在播放: {name}",
+      "playlistEnded": "播放列表已播放完毕",
+      "timestampCopied": "已复制时间戳: {time}"
+    },
+    "playlist": {
+      "title": "播放列表",
+      "noAudioFiles": "还没有导入音频文件",
+      "lyricsMatched": "已匹配歌词"
+    },
+    "notifications": {
+      "audioImported": "已导入 {count} 个音频文件",
+      "copyFailed": "复制失败，请重试",
+      "failedToParseState": "解析保存的状态失败",
+      "fileReadError": "读取文件 {name} 时出错"
+    }
+  }
+}

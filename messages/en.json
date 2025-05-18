@@ -1,0 +1,78 @@
+{
+  "Index": {
+    "title": "LRC-Webkit",
+    "description": "A powerful LRC editor"
+  },
+  "Nav": {
+    "github": "View on GitHub"
+  },
+  "Editor": {
+    "importAudio": "Import",
+    "importLyrics": "Import LRC",
+    "exportLyrics": "Export",
+    "expandEditor": "Expand",
+    "collapseEditor": "Collapse",
+    "lyricsLine": "Lyrics Lines",
+    "shortcuts": "Shortcuts",
+    "shortcutTips": {
+      "title": "Keyboard Shortcuts:",
+      "space": "Space: Add timestamp to next line",
+      "arrows": "← →: Adjust current line timestamp",
+      "numbers": "1-9: Quick jump to position"
+    },
+    "noLyrics": "No lyrics imported yet",
+    "lineAdjust": "Line adjustment:",
+    "seconds": "seconds",
+    "updateTimestamp": "Update timestamp",
+    "moveForward": "Move forward",
+    "moveBackward": "Move backward",
+    "helpText": {
+      "batchImport": "Support batch import of lyrics files, automatically matching lyrics with similar audio file names",
+      "timestampFormat": "Support importing lyrics with timestamps ([00:08:601] format), timestamps can be adjusted directly"
+    },
+    "matchResults": {
+      "title": "Lyrics Match Results:",
+      "success": "Successfully matched",
+      "failed": "No match found"
+    },
+    "textArea": {
+      "title": "Text Editor",
+      "placeholder": "Paste lyrics text here...",
+      "copyToClipboard": "Copy lyrics to clipboard",
+      "exportCurrentLyrics": "Export lyrics for current audio",
+      "noLyricsToExport": "No lyrics to export",
+      "lyricsExported": "Lyrics exported: {filename}",
+      "lyricsCopied": "Lyrics copied to clipboard",
+      "noMatchingLyrics": "No matching lyrics line found",
+      "matchingLyricsUpdated": "Updated matching line timestamp: {time}",
+      "lyricsImported": "Imported {success} lyrics files successfully, {failed} files not matched",
+      "noTimestamp": "This line has no timestamp to adjust",
+      "timestampAdjusted": "Adjusted timestamp by {offset} seconds"
+    },
+    "player": {
+      "noAudioSelected": "No audio selected",
+      "speed": "Speed:",
+      "copyCurrentTime": "Copy current time",
+      "previousTrack": "Previous track (↑)",
+      "nextTrack": "Next track (↓)",
+      "rewind": "Rewind 5 seconds (←)",
+      "forward": "Forward 5 seconds (→)",
+      "playPause": "Play/Pause (Space)",
+      "playbackFailed": "Playback failed: {error}",
+      "nowPlaying": "Now playing: {name}",
+      "playlistEnded": "Playlist has ended",
+      "timestampCopied": "Timestamp copied: {time}"
+    },
+    "playlist": {
+      "title": "Playlist",
+      "noAudioFiles": "No audio files imported yet",
+      "lyricsMatched": "Lyrics matched"
+    },
+    "notifications": {
+      "audioImported": "Imported {count} audio files",
+      "copyFailed": "Failed to copy, please try again",
+      "failedToParseState": "Failed to parse saved state",
+      "fileReadError": "Error reading file {name}"
+    }
+  }
+}
