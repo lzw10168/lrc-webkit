@@ -50,7 +50,7 @@ const LyricsTextArea = ({
           <h2 className="text-lg font-semibold">{t('textArea.title')}</h2>
         </div>
         <div className="flex gap-2">
-          {/* 复制歌词 */}
+          {/* Copy Lyrics */}
           <button
             onClick={() => {
               navigator.clipboard.writeText(lyricsText);
@@ -61,7 +61,7 @@ const LyricsTextArea = ({
           >
             <Copy size={18} />
           </button>
-          {/* 导出歌词 */}
+          {/* Export Lyrics */}
           <button
             onClick={exportCurrentLyrics}
             className="p-2 rounded-full hover:bg-muted"
@@ -72,7 +72,7 @@ const LyricsTextArea = ({
         </div>
       </div>
 
-      {/* 歌词编辑框 */}
+      {/* Lyrics Editor */}
       <textarea
         ref={lyricsTextareaRef}
         value={lyricsText}

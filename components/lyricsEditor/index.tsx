@@ -12,10 +12,10 @@ import LyricsPlayer from './LyricsPlayer';
 import { readFileAsText, batchExportLyrics } from '@/lib/fileHandlers';
 import { compareFileNames, formatTime } from '@/lib/formatting';
 
-// 创建一个 memoized 的 Audio 组件
+// Create a memoized Audio component
 const MemoizedAudio = memo(function MemoizedAudio({ audioRef }: { audioRef: React.RefObject<HTMLAudioElement> }) {
   return <audio ref={audioRef} className="hidden" />;
-}, () => true); // 永远返回 true 因为我们只想渲染一次
+}, () => true); // Always return true because we only want to render once
 
 const LyricsEditor = () => {
   const t = useTranslations('Editor');
@@ -146,27 +146,27 @@ const LyricsEditor = () => {
     parseLyrics(lyricsText);
   }, [lyricsText]);
 
-  // 修改自动高亮当前播放行的功能
+  // Modify the auto-highlight feature for the current playing line
   useEffect(() => {
     if (parsedLyrics.length > 0) {
       let foundIndex = -1;
 
-      // 找到当前时间之前的最近的歌词行
+      // Find the nearest lyrics line before the current time
       for (let i = 0; i < parsedLyrics.length; i++) {
         if (parsedLyrics[i].time !== -1 && parsedLyrics[i].time <= currentTime) {
           foundIndex = i;
         } else if (parsedLyrics[i].time > currentTime) {
-          // 找到第一个超过当前时间的行，停止搜索
+          // Find the first line that exceeds the current time, stop searching
           break;
         }
       }
 
 
-      // 如果找到了匹配的行，更新选中状态并滚动到可视区域
+      // If a matching line is found, update selection state and scroll into view
       if (foundIndex !== -1 && foundIndex !== selectedLineIndex) {
         setSelectedLineIndex(foundIndex);
 
-        // 滚动到当前行
+        // Scroll to current line
         const lineElement = document.getElementById(`lyrics-line-${foundIndex}`);
         if (lineElement) {
           lineElement.scrollIntoView({
@@ -203,10 +203,10 @@ const LyricsEditor = () => {
     const targetLine = parsedLyrics[index];
     const lines = lyricsText.split('\n');
 
-    // 寻找匹配的行，使用内容匹配
+    // Find matching line using content matching
     let targetIndex = -1;
 
-    // 如果行已有时间戳，先尝试通过时间戳+内容匹配
+    // If the line already has a timestamp, try matching by timestamp + content first
     if (targetLine.timestamp) {
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].includes(targetLine.timestamp) &&
@@ -217,10 +217,10 @@ const LyricsEditor = () => {
       }
     }
 
-    // 如果没找到，仅用内容匹配（无时间戳的情况）
+    // If not found, match by content only (for lines without timestamp)
     if (targetIndex === -1) {
       for (let i = 0; i < lines.length; i++) {
-        // 移除潜在的时间戳部分后比较
+        // Compare after removing potential timestamp part
         const lineWithoutTimestamp = lines[i].replace(/^\[.*?\]\s*/, '');
         if (lineWithoutTimestamp === targetLine.text) {
           targetIndex = i;
@@ -229,19 +229,19 @@ const LyricsEditor = () => {
       }
     }
 
-    // 未找到匹配行
+    // No matching line found
     if (targetIndex === -1) {
       showToast('无法找到匹配的歌词行', 'error');
       return;
     }
 
-    // 更新找到的行
+    // Update the found line
     let updatedLine = '';
     if (targetLine.timestamp) {
-      // 替换已有时间戳
+      // Replace existing timestamp
       updatedLine = lines[targetIndex].replace(/^\[.*?\]/, formattedTime);
     } else {
-      // 添加新时间戳
+      // Add new timestamp
       updatedLine = `${formattedTime}${lines[targetIndex]}`;
     }
 
@@ -249,10 +249,8 @@ const LyricsEditor = () => {
     const updatedText = lines.join('\n');
     setLyricsText(updatedText);
 
-    // setTimeout(() => {
-    //   // 更新播放器进度到当前行
-    //   seekTo(currentTime);
-    // }, 100);
+    // Update player progress to current line
+    seekTo(currentTime);
 
     showToast(`已更新匹配行时间戳: ${formattedTime}`);
   };
@@ -532,7 +530,7 @@ const LyricsEditor = () => {
     }
   };
 
-  // 修改微调时间戳方法，同样使用内容匹配
+  // Modify fine-tune timestamp method, also using content matching
   const adjustLineTimestamp = (index: number, offsetSeconds: number) => {
     if (index < 0 || index >= parsedLyrics.length) return;
 
@@ -542,14 +540,14 @@ const LyricsEditor = () => {
       return;
     }
 
-    // 计算新的时间，确保不小于0
+    // Calculate new time, ensure it's not less than 0
     const newTime = Math.max(0, targetLine.time + offsetSeconds);
     const formattedTime = formatTime(newTime);
 
-    // 更新文本内容，使用内容匹配
+    // Update text content using content matching
     const lines = lyricsText.split('\n');
 
-    // 寻找匹配行
+    // Find matching line
     let targetIndex = -1;
     for (let i = 0; i < lines.length; i++) {
       if (lines[i].includes(targetLine.timestamp) &&
@@ -559,13 +557,13 @@ const LyricsEditor = () => {
       }
     }
 
-    // 未找到匹配行
+    // No matching line found
     if (targetIndex === -1) {
       showToast(t('textArea.noMatchingLyrics'), 'error');
       return;
     }
 
-    // 替换时间戳
+    // Replace timestamp
     const updatedLine = lines[targetIndex].replace(/^\[.*?\]/, formattedTime);
     lines[targetIndex] = updatedLine;
 
@@ -582,7 +580,7 @@ const LyricsEditor = () => {
   return (
     <div className="container mx-auto p-4 max-w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* 歌词文本和歌词行区域 */}
+        {/* Lyrics text and lines area */}
         <div className="lg:col-span-8 order-2 lg:order-1">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <div className={`${lyricsTextCollapsed ? 'hidden' : 'md:col-span-6'} bg-card p-4 rounded-lg shadow-md`}>
@@ -609,7 +607,7 @@ const LyricsEditor = () => {
           </div>
         </div>
 
-        {/* 播放器和播放列表区域 */}
+        {/* Player and playlist area */}
         <div className="lg:col-span-4 order-1 lg:order-2">
           <LyricsAction
             matchResults={matchResults}

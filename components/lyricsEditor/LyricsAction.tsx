@@ -23,7 +23,7 @@ const LyricsAction = ({
 
   return (
     <>
-      {/* 文件导入 */}
+      {/* File Import */}
       <div className="mb-1 flex flex-wrap gap-2">
         <label htmlFor="file-upload" className="flex items-center gap-1.5 cursor-pointer bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1.5 rounded-md w-fit text-sm">
           <Upload size={14} />

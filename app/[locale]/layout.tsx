@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       locale: locale,
       url: `https://lrc-webkit.vercel.app/${locale}`,
       siteName: "LRC-Webkit",
-      title: localeMetadata.title,
-      description: localeMetadata.description,
+      title: localeMetadata.title || "",
+      description: localeMetadata.description || "",
       images: [
         {
           url: "/og-image.png",
@@ -49,8 +49,8 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     },
     twitter: {
       card: "summary_large_image",
-      title: localeMetadata.title,
-      description: localeMetadata.description,
+      title: localeMetadata.title || "",
+      description: localeMetadata.description || "",
       images: ["/og-image.png"]
     },
     viewport: "width=device-width, initial-scale=1",
